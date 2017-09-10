@@ -36,7 +36,8 @@ class Constants: NSObject {
     
     
     //MARK: - COLORS
-    static let COLOR_NAV_BAR = UIColor(colorLiteralRed: 83/255.0, green: 83/255.0, blue: 99/255.0, alpha: 1.0)
+    static let COLOR_NAV_BAR = UIColor(colorLiteralRed: 12/255.0, green: 182/255.0, blue: 143/255.0, alpha: 1.0)
+    
     static let COLOR_NAV_BAR_RED_TITLE = UIColor(colorLiteralRed: 245/255.0, green: 114/255.0, blue: 115/255.0, alpha: 1.0)
     static let COLOR_LIGHT_GRAY_BACKGROUND = UIColor(colorLiteralRed: 242/255.0, green: 243/255.0, blue: 245/255.0, alpha: 1.0)
     static let COLOR_GREEN_USERNAME = UIColor(colorLiteralRed: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1.0)
@@ -73,7 +74,7 @@ class Constants: NSObject {
         
         
         // Main StoryBoard
-        static let storyIntroductionVC                  = "Introduction"
+        static let storyLoginVC                         = "Login"
         static let storyDashboardVC                     = "Dashboard"
         
         
