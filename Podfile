@@ -6,7 +6,7 @@ target 'Attendance' do
   use_frameworks!
 
 pod 'ActionSheetPicker-3.0'
-pod 'LGSideMenuController'
+#pod 'AKSideMenu'
 
   # Pods for Attendance
 

@@ -1,15 +1,15 @@
 PODS:
   - ActionSheetPicker-3.0 (2.2.0)
-  - LGSideMenuController (2.0.5)
+  - AKSideMenu (1.3.1)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
-  - LGSideMenuController
+  - AKSideMenu
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
-  LGSideMenuController: 3cc82025a53b672926d3ffb3f428f4f3e15e3349
+  AKSideMenu: 1891ead7606775b9d820884c543ed492e91d276a
 
-PODFILE CHECKSUM: f365dfad284a3788c131fd70e14a83c98ab09be4
+PODFILE CHECKSUM: 1ef04eeae5c3a8187589391c3f05d0ae3c6ee0aa
 
 COCOAPODS: 1.0.1

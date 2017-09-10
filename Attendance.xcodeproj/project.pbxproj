@@ -12,8 +12,6 @@
 		0EEDB9061F5C066100BB97ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEDB9041F5C066100BB97ED /* Main.storyboard */; };
 		0EEDB9081F5C066100BB97ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EEDB9071F5C066100BB97ED /* Assets.xcassets */; };
 		0EEDB90B1F5C066100BB97ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEDB9091F5C066100BB97ED /* LaunchScreen.storyboard */; };
-		0EEDB9161F5C066100BB97ED /* AttendanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9151F5C066100BB97ED /* AttendanceTests.swift */; };
-		0EEDB9211F5C066100BB97ED /* AttendanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9201F5C066100BB97ED /* AttendanceUITests.swift */; };
 		0EEDB9BD1F5C071000BB97ED /* Information in Resources */ = {isa = PBXBuildFile; fileRef = 0EEDB9301F5C071000BB97ED /* Information */; };
 		0EEDB9BE1F5C071000BB97ED /* GOTHAM-BLACK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0EEDB9331F5C071000BB97ED /* GOTHAM-BLACK.TTF */; };
 		0EEDB9BF1F5C071000BB97ED /* GOTHAM-BLACKITALIC.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0EEDB9341F5C071000BB97ED /* GOTHAM-BLACKITALIC.TTF */; };
@@ -115,27 +113,8 @@
 		0EEDBA1F1F5C071000BB97ED /* UtillClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9B51F5C071000BB97ED /* UtillClass.swift */; };
 		0EEDBA211F5C071000BB97ED /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9B91F5C071000BB97ED /* Dashboard.swift */; };
 		0EEDBA231F5C071000BB97ED /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9BC1F5C071000BB97ED /* SuperViewController.swift */; };
-		3C5F21AC3D1424F346EB50F1 /* Pods_AttendanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA19EE41C7876E9C932DE552 /* Pods_AttendanceTests.framework */; };
 		B94FC3648C1C9FB78C49567F /* Pods_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58AF4F02102EE5CD72A7FE17 /* Pods_Attendance.framework */; };
-		E5182B42785D530D9DE1D269 /* Pods_AttendanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE197DCA3E979FCD1B3D1428 /* Pods_AttendanceUITests.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0EEDB9121F5C066100BB97ED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0EEDB8F51F5C066100BB97ED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0EEDB8FC1F5C066100BB97ED;
-			remoteInfo = Attendance;
-		};
-		0EEDB91D1F5C066100BB97ED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0EEDB8F51F5C066100BB97ED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0EEDB8FC1F5C066100BB97ED;
-			remoteInfo = Attendance;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		002A6B7388DB6D0532E39945 /* Pods-Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attendance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Attendance/Pods-Attendance.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,10 +125,8 @@
 		0EEDB9071F5C066100BB97ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EEDB90A1F5C066100BB97ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EEDB90C1F5C066100BB97ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0EEDB9111F5C066100BB97ED /* AttendanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttendanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEDB9151F5C066100BB97ED /* AttendanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTests.swift; sourceTree = "<group>"; };
 		0EEDB9171F5C066100BB97ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0EEDB91C1F5C066100BB97ED /* AttendanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttendanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEDB9201F5C066100BB97ED /* AttendanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceUITests.swift; sourceTree = "<group>"; };
 		0EEDB9221F5C066100BB97ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EEDB9301F5C071000BB97ED /* Information */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Information; sourceTree = "<group>"; };
@@ -292,22 +269,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0EEDB90E1F5C066100BB97ED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3C5F21AC3D1424F346EB50F1 /* Pods_AttendanceTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0EEDB9191F5C066100BB97ED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E5182B42785D530D9DE1D269 /* Pods_AttendanceUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -345,8 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				0EEDB8FD1F5C066100BB97ED /* Attendance.app */,
-				0EEDB9111F5C066100BB97ED /* AttendanceTests.xctest */,
-				0EEDB91C1F5C066100BB97ED /* AttendanceUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -707,47 +666,6 @@
 			productReference = 0EEDB8FD1F5C066100BB97ED /* Attendance.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0EEDB9101F5C066100BB97ED /* AttendanceTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0EEDB9281F5C066100BB97ED /* Build configuration list for PBXNativeTarget "AttendanceTests" */;
-			buildPhases = (
-				23357E77375FE18F6DED3161 /* [CP] Check Pods Manifest.lock */,
-				0EEDB90D1F5C066100BB97ED /* Sources */,
-				0EEDB90E1F5C066100BB97ED /* Frameworks */,
-				0EEDB90F1F5C066100BB97ED /* Resources */,
-				6F1E1B2C7D7043CDD616D94C /* [CP] Embed Pods Frameworks */,
-				3CB3D50EC41DF001428E61A6 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0EEDB9131F5C066100BB97ED /* PBXTargetDependency */,
-			);
-			name = AttendanceTests;
-			productName = AttendanceTests;
-			productReference = 0EEDB9111F5C066100BB97ED /* AttendanceTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0EEDB91B1F5C066100BB97ED /* AttendanceUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0EEDB92B1F5C066100BB97ED /* Build configuration list for PBXNativeTarget "AttendanceUITests" */;
-			buildPhases = (
-				96B9B0FAF4891D19B71371B0 /* [CP] Check Pods Manifest.lock */,
-				0EEDB9181F5C066100BB97ED /* Sources */,
-				0EEDB9191F5C066100BB97ED /* Frameworks */,
-				0EEDB91A1F5C066100BB97ED /* Resources */,
-				CD8EFE8F61252A72BF1C4201 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0EEDB91E1F5C066100BB97ED /* PBXTargetDependency */,
-			);
-			name = AttendanceUITests;
-			productName = AttendanceUITests;
-			productReference = 0EEDB91C1F5C066100BB97ED /* AttendanceUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -760,17 +678,8 @@
 				TargetAttributes = {
 					0EEDB8FC1F5C066100BB97ED = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
-					};
-					0EEDB9101F5C066100BB97ED = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 0EEDB8FC1F5C066100BB97ED;
-					};
-					0EEDB91B1F5C066100BB97ED = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 0EEDB8FC1F5C066100BB97ED;
 					};
 				};
 			};
@@ -788,8 +697,6 @@
 			projectRoot = "";
 			targets = (
 				0EEDB8FC1F5C066100BB97ED /* Attendance */,
-				0EEDB9101F5C066100BB97ED /* AttendanceTests */,
-				0EEDB91B1F5C066100BB97ED /* AttendanceUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -845,20 +752,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0EEDB90F1F5C066100BB97ED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0EEDB91A1F5C066100BB97ED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -875,66 +768,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Attendance/Pods-Attendance-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		23357E77375FE18F6DED3161 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3CB3D50EC41DF001428E61A6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AttendanceTests/Pods-AttendanceTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6F1E1B2C7D7043CDD616D94C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AttendanceTests/Pods-AttendanceTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		96B9B0FAF4891D19B71371B0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9FCB2B8D25842043DC0292ED /* [CP] Check Pods Manifest.lock */ = {
@@ -965,21 +798,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Attendance/Pods-Attendance-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CD8EFE8F61252A72BF1C4201 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AttendanceUITests/Pods-AttendanceUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1055,36 +873,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0EEDB90D1F5C066100BB97ED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0EEDB9161F5C066100BB97ED /* AttendanceTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0EEDB9181F5C066100BB97ED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0EEDB9211F5C066100BB97ED /* AttendanceUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0EEDB9131F5C066100BB97ED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0EEDB8FC1F5C066100BB97ED /* Attendance */;
-			targetProxy = 0EEDB9121F5C066100BB97ED /* PBXContainerItemProxy */;
-		};
-		0EEDB91E1F5C066100BB97ED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0EEDB8FC1F5C066100BB97ED /* Attendance */;
-			targetProxy = 0EEDB91D1F5C066100BB97ED /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0EEDB9041F5C066100BB97ED /* Main.storyboard */ = {
@@ -1233,64 +1022,6 @@
 			};
 			name = Release;
 		};
-		0EEDB9291F5C066100BB97ED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E8574A052B93389A3355F5D /* Pods-AttendanceTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AttendanceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.southamptonapp.AttendanceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Attendance.app/Attendance";
-			};
-			name = Debug;
-		};
-		0EEDB92A1F5C066100BB97ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 671ABB2BD960A850FA0B869A /* Pods-AttendanceTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AttendanceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.southamptonapp.AttendanceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Attendance.app/Attendance";
-			};
-			name = Release;
-		};
-		0EEDB92C1F5C066100BB97ED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29A50E16001EB10750822DE5 /* Pods-AttendanceUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = AttendanceUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.southamptonapp.AttendanceUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Attendance;
-			};
-			name = Debug;
-		};
-		0EEDB92D1F5C066100BB97ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9167F527D81E09DF67E05AFA /* Pods-AttendanceUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = AttendanceUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.southamptonapp.AttendanceUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Attendance;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1308,24 +1039,6 @@
 			buildConfigurations = (
 				0EEDB9261F5C066100BB97ED /* Debug */,
 				0EEDB9271F5C066100BB97ED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0EEDB9281F5C066100BB97ED /* Build configuration list for PBXNativeTarget "AttendanceTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0EEDB9291F5C066100BB97ED /* Debug */,
-				0EEDB92A1F5C066100BB97ED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0EEDB92B1F5C066100BB97ED /* Build configuration list for PBXNativeTarget "AttendanceUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0EEDB92C1F5C066100BB97ED /* Debug */,
-				0EEDB92D1F5C066100BB97ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
