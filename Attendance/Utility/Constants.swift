@@ -210,13 +210,14 @@ struct AlertMessages {
     
 }
 
-//Edit Profile
-struct SelectedOption {
-    static let CURRENT_WORK     =   11
-    static let SCHOOL           =   12
-    static let GENDER           =   13
-    static let SHOW_ME          =   14
-    static let PROFILE          =   15
+//Slider Menu Option
+struct SliderMenuOption {
+    static let PROFILE      =   11
+    static let MY_TEAM      =   12
+    static let MY_VISIT     =   13
+    static let CHECK_IN     =   14
+    static let CONTACT_US   =   15
+    static let LOGOUT       =   16
 }
 
 

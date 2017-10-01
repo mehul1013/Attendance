@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var isSliderMenuInitialise: Bool = false
 
 
     //MARK: - Application Life Cycle

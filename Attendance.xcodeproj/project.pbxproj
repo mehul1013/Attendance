@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E10C37D1F80BE2B0045DC74 /* SliderMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E10C37C1F80BE2B0045DC74 /* SliderMenu.xib */; };
+		0E10C37F1F80BE3C0045DC74 /* SliderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E10C37E1F80BE3C0045DC74 /* SliderMenu.swift */; };
 		0E5977261F65090C008FDCE0 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5977251F65090C008FDCE0 /* Login.swift */; };
 		0EEDB9011F5C066100BB97ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9001F5C066100BB97ED /* AppDelegate.swift */; };
 		0EEDB9061F5C066100BB97ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEDB9041F5C066100BB97ED /* Main.storyboard */; };
@@ -118,6 +120,8 @@
 
 /* Begin PBXFileReference section */
 		002A6B7388DB6D0532E39945 /* Pods-Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attendance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Attendance/Pods-Attendance.release.xcconfig"; sourceTree = "<group>"; };
+		0E10C37C1F80BE2B0045DC74 /* SliderMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderMenu.xib; sourceTree = "<group>"; };
+		0E10C37E1F80BE3C0045DC74 /* SliderMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderMenu.swift; sourceTree = "<group>"; };
 		0E5977251F65090C008FDCE0 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		0EEDB8FD1F5C066100BB97ED /* Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEDB9001F5C066100BB97ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +276,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E10C37B1F80BE2B0045DC74 /* SliderMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0E10C37C1F80BE2B0045DC74 /* SliderMenu.xib */,
+				0E10C37E1F80BE3C0045DC74 /* SliderMenu.swift */,
+			);
+			path = SliderMenu;
+			sourceTree = "<group>";
+		};
 		0E5977241F65090C008FDCE0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				0EEDB9561F5C071000BB97ED /* Information */,
+				0E10C37B1F80BE2B0045DC74 /* SliderMenu */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -741,6 +755,7 @@
 				0EEDB9D61F5C071000BB97ED /* Roboto-Light.ttf in Resources */,
 				0EEDB9D21F5C071000BB97ED /* Roboto-BlackItalic.ttf in Resources */,
 				0EEDB9CF1F5C071000BB97ED /* Information in Resources */,
+				0E10C37D1F80BE2B0045DC74 /* SliderMenu.xib in Resources */,
 				0EEDB9C91F5C071000BB97ED /* GOTHAM-THIN.TTF in Resources */,
 				0EEDB9C51F5C071000BB97ED /* GOTHAM-LIGHT_0.OTF in Resources */,
 				0EEDB9C71F5C071000BB97ED /* GOTHAM-MEDIUM.TTF in Resources */,
@@ -842,6 +857,7 @@
 				0EEDB9FC1F5C071000BB97ED /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 				0EEDB9E71F5C071000BB97ED /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				0EEDBA061F5C071000BB97ED /* NVActivityIndicatorPresenter.swift in Sources */,
+				0E10C37F1F80BE3C0045DC74 /* SliderMenu.swift in Sources */,
 				0EEDBA181F5C071000BB97ED /* UIImage+WebP.m in Sources */,
 				0EEDBA1D1F5C071000BB97ED /* Constants.swift in Sources */,
 				0EEDBA051F5C071000BB97ED /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
