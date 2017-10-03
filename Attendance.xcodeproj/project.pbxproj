@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0E10C37D1F80BE2B0045DC74 /* SliderMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E10C37C1F80BE2B0045DC74 /* SliderMenu.xib */; };
 		0E10C37F1F80BE3C0045DC74 /* SliderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E10C37E1F80BE3C0045DC74 /* SliderMenu.swift */; };
+		0E4B4E161F82AA6000259BDF /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4B4E151F82AA6000259BDF /* CheckIn.swift */; };
+		0E4B4E181F82AFD300259BDF /* CellCheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4B4E171F82AFD300259BDF /* CellCheckIn.swift */; };
+		0E4B4E1D1F82BB6700259BDF /* MyVisits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4B4E1C1F82BB6700259BDF /* MyVisits.swift */; };
 		0E5977261F65090C008FDCE0 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5977251F65090C008FDCE0 /* Login.swift */; };
 		0EEDB9011F5C066100BB97ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9001F5C066100BB97ED /* AppDelegate.swift */; };
 		0EEDB9061F5C066100BB97ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEDB9041F5C066100BB97ED /* Main.storyboard */; };
@@ -122,6 +125,9 @@
 		002A6B7388DB6D0532E39945 /* Pods-Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attendance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Attendance/Pods-Attendance.release.xcconfig"; sourceTree = "<group>"; };
 		0E10C37C1F80BE2B0045DC74 /* SliderMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderMenu.xib; sourceTree = "<group>"; };
 		0E10C37E1F80BE3C0045DC74 /* SliderMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderMenu.swift; sourceTree = "<group>"; };
+		0E4B4E151F82AA6000259BDF /* CheckIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
+		0E4B4E171F82AFD300259BDF /* CellCheckIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCheckIn.swift; sourceTree = "<group>"; };
+		0E4B4E1C1F82BB6700259BDF /* MyVisits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVisits.swift; sourceTree = "<group>"; };
 		0E5977251F65090C008FDCE0 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		0EEDB8FD1F5C066100BB97ED /* Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEDB9001F5C066100BB97ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -283,6 +289,23 @@
 				0E10C37E1F80BE3C0045DC74 /* SliderMenu.swift */,
 			);
 			path = SliderMenu;
+			sourceTree = "<group>";
+		};
+		0E4B4E141F82AA6000259BDF /* CheckIn */ = {
+			isa = PBXGroup;
+			children = (
+				0E4B4E151F82AA6000259BDF /* CheckIn.swift */,
+				0E4B4E171F82AFD300259BDF /* CellCheckIn.swift */,
+			);
+			path = CheckIn;
+			sourceTree = "<group>";
+		};
+		0E4B4E1B1F82BB6700259BDF /* MyVisits */ = {
+			isa = PBXGroup;
+			children = (
+				0E4B4E1C1F82BB6700259BDF /* MyVisits.swift */,
+			);
+			path = MyVisits;
 			sourceTree = "<group>";
 		};
 		0E5977241F65090C008FDCE0 /* Login */ = {
@@ -621,6 +644,8 @@
 		0EEDB9B61F5C071000BB97ED /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0E4B4E1B1F82BB6700259BDF /* MyVisits */,
+				0E4B4E141F82AA6000259BDF /* CheckIn */,
 				0E5977241F65090C008FDCE0 /* Login */,
 				0EEDB9B71F5C071000BB97ED /* Dashboard */,
 				0EEDB9BB1F5C071000BB97ED /* SuperViewController */,
@@ -692,6 +717,7 @@
 				TargetAttributes = {
 					0EEDB8FC1F5C066100BB97ED = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = JEDFVGAD9T;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
@@ -825,6 +851,7 @@
 				0EEDB9EB1F5C071000BB97ED /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				0EEDBA011F5C071000BB97ED /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				0EEDBA231F5C071000BB97ED /* SuperViewController.swift in Sources */,
+				0E4B4E181F82AFD300259BDF /* CellCheckIn.swift in Sources */,
 				0EEDB9EC1F5C071000BB97ED /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				0EEDB9F71F5C071000BB97ED /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
 				0EEDBA041F5C071000BB97ED /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
@@ -848,6 +875,7 @@
 				0EEDBA0F1F5C071000BB97ED /* SDWebImageCompat.m in Sources */,
 				0EEDBA0E1F5C071000BB97ED /* SDImageCache.m in Sources */,
 				0EEDB9F61F5C071000BB97ED /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
+				0E4B4E161F82AA6000259BDF /* CheckIn.swift in Sources */,
 				0EEDBA141F5C071000BB97ED /* SDWebImagePrefetcher.m in Sources */,
 				0EEDBA191F5C071000BB97ED /* UIImageView+HighlightedWebCache.m in Sources */,
 				0EEDBA031F5C071000BB97ED /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
@@ -875,6 +903,7 @@
 				0EEDB9F81F5C071000BB97ED /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				0EEDB9EF1F5C071000BB97ED /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				0EEDBA121F5C071000BB97ED /* SDWebImageDownloaderOperation.m in Sources */,
+				0E4B4E1D1F82BB6700259BDF /* MyVisits.swift in Sources */,
 				0EEDB9011F5C066100BB97ED /* AppDelegate.swift in Sources */,
 				0EEDBA111F5C071000BB97ED /* SDWebImageDownloader.m in Sources */,
 				0EEDBA1C1F5C071000BB97ED /* AppUtils.swift in Sources */,
@@ -933,9 +962,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: MehulS Solanki (2U28KPSZDV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: MehulS Solanki (2U28KPSZDV)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = XQ6EV8ZD5R;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -955,6 +986,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "15a56d80-770d-4d46-a97d-219a18c283b0";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -983,9 +1015,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: MehulS Solanki (2U28KPSZDV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: MehulS Solanki (2U28KPSZDV)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = XQ6EV8ZD5R;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -998,6 +1032,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "15a56d80-770d-4d46-a97d-219a18c283b0";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -1009,13 +1044,15 @@
 			baseConfigurationReference = AECBEBB67E3CE371E4793C35 /* Pods-Attendance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: MehulS Solanki (2U28KPSZDV)";
+				DEVELOPMENT_TEAM = JEDFVGAD9T;
 				INFOPLIST_FILE = Attendance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.southamptonapp.Attendance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.gcell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "15a56d80-770d-4d46-a97d-219a18c283b0";
+				PROVISIONING_PROFILE_SPECIFIER = GCell_Development_October;
 				SWIFT_OBJC_BRIDGING_HEADER = Attendance/Attendance_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1026,13 +1063,15 @@
 			baseConfigurationReference = 002A6B7388DB6D0532E39945 /* Pods-Attendance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: MehulS Solanki (2U28KPSZDV)";
+				DEVELOPMENT_TEAM = JEDFVGAD9T;
 				INFOPLIST_FILE = Attendance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.southamptonapp.Attendance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.gcell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "15a56d80-770d-4d46-a97d-219a18c283b0";
+				PROVISIONING_PROFILE_SPECIFIER = GCell_Development_October;
 				SWIFT_OBJC_BRIDGING_HEADER = Attendance/Attendance_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};

@@ -165,16 +165,27 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoJ-cx-nda">
+                    <rect key="frame" x="275" y="64" width="100" height="603"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="btnCloseMenuClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="mws-PH-ow7"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.60041202910958902" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="0wt-ff-rjX" firstAttribute="top" secondItem="kQ0-cB-5Xg" secondAttribute="bottom" id="Asv-g6-QyY"/>
+                <constraint firstAttribute="trailing" secondItem="DoJ-cx-nda" secondAttribute="trailing" id="D0w-qd-C9E"/>
                 <constraint firstItem="0wt-ff-rjX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fs2-Ub-uva"/>
+                <constraint firstAttribute="bottom" secondItem="DoJ-cx-nda" secondAttribute="bottom" id="LKK-OE-1l2"/>
                 <constraint firstAttribute="trailing" secondItem="0wt-ff-rjX" secondAttribute="trailing" constant="100" id="WV8-Yk-l94"/>
                 <constraint firstItem="kQ0-cB-5Xg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XRD-s4-QfV"/>
                 <constraint firstAttribute="trailing" secondItem="kQ0-cB-5Xg" secondAttribute="trailing" id="e4s-W2-iPV"/>
                 <constraint firstAttribute="bottom" secondItem="0wt-ff-rjX" secondAttribute="bottom" id="eGN-Dn-Qhp"/>
                 <constraint firstItem="kQ0-cB-5Xg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fkr-OO-lMN"/>
+                <constraint firstItem="DoJ-cx-nda" firstAttribute="leading" secondItem="0wt-ff-rjX" secondAttribute="trailing" id="jVX-zb-7AT"/>
+                <constraint firstItem="DoJ-cx-nda" firstAttribute="top" secondItem="kQ0-cB-5Xg" secondAttribute="bottom" id="tG0-0R-6Jl"/>
             </constraints>
             <connections>
                 <outlet property="btnProfile" destination="c7Q-Bk-ETQ" id="Nr1-ji-aiW"/>

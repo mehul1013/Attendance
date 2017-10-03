@@ -48,8 +48,19 @@ class SuperViewController: UIViewController, SliderMenuDelegate {
 
     //MARK: - Show Left Bar Icon
     func showLeftBarIcon() -> Void {
-        let leftBar = UIBarButtonItem(image: UIImage(named: "Menu")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(btnMenuClicked))
-        self.navigationItem.leftBarButtonItem = leftBar
+        if self is Dashboard {
+            let leftBar = UIBarButtonItem(image: UIImage(named: "Menu")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(btnMenuClicked))
+            self.navigationItem.leftBarButtonItem = leftBar
+        }else {
+            let leftBar = UIBarButtonItem(image: UIImage(named: "Back")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(btnBackClicked))
+            self.navigationItem.leftBarButtonItem = leftBar
+        }
+    }
+    
+    
+    //MARK: - Back Button
+    func btnBackClicked() -> Void {
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Slider Menu
@@ -72,8 +83,10 @@ class SuperViewController: UIViewController, SliderMenuDelegate {
             //My Team
         }else if index == SliderMenuOption.MY_VISIT {
             //My Visit
+            self.navigateToMtyVisits()
         }else if index == SliderMenuOption.CHECK_IN {
             //Check-In
+            self.navigateToCheckIn()
         }else if index == SliderMenuOption.CONTACT_US {
             //Contact Us
         }else if index == SliderMenuOption.LOGOUT {
@@ -81,6 +94,21 @@ class SuperViewController: UIViewController, SliderMenuDelegate {
             self.logout()
         }
     }
+    
+    
+    //MARK: - My Visits
+    func navigateToMtyVisits() -> Void {
+        let myVisitVC = self.storyboard?.instantiateViewController(withIdentifier: "MyVisits") as! MyVisits
+        self.navigationController?.pushViewController(myVisitVC, animated: true)
+    }
+    
+    
+    //MARK: - Check-In
+    func navigateToCheckIn() -> Void {
+        let checkInVC = self.storyboard?.instantiateViewController(withIdentifier: "CheckIn") as! CheckIn
+        self.navigationController?.pushViewController(checkInVC, animated: true)
+    }
+    
     
     //MARK: - Logout
     func logout() -> Void {

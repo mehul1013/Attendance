@@ -46,4 +46,18 @@ class Dashboard: SuperViewController {
         let rightBar = UIBarButtonItem(customView: imageView)
         self.navigationItem.rightBarButtonItem = rightBar
     }
+    
+    
+    //MARK: - Check In
+    @IBAction func btnCheckInClicked(_ sender: Any) {
+        let checkInVC = self.storyboard?.instantiateViewController(withIdentifier: "CheckIn") as! CheckIn
+        self.navigationController?.pushViewController(checkInVC, animated: true)
+    }
+    
+    //MARK: - My Visits
+    @IBAction func btnMyVisitsClicked(_ sender: Any) {
+        let myVisitVC = self.storyboard?.instantiateViewController(withIdentifier: "MyVisits") as! MyVisits
+        self.navigationController?.pushViewController(myVisitVC, animated: true)
+    }
+    
 }
