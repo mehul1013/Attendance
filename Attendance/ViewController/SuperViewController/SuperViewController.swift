@@ -8,9 +8,9 @@
 
 import UIKit
 import CoreLocation
+import MessageUI
 
-
-class SuperViewController: UIViewController, SliderMenuDelegate {
+class SuperViewController: UIViewController, SliderMenuDelegate, MFMailComposeViewControllerDelegate {
     
     static var sliderMenu: SliderMenu!
 
@@ -89,6 +89,7 @@ class SuperViewController: UIViewController, SliderMenuDelegate {
             self.navigateToCheckIn()
         }else if index == SliderMenuOption.CONTACT_US {
             //Contact Us
+            self.contactUs()
         }else if index == SliderMenuOption.LOGOUT {
             //Logout
             self.logout()
@@ -107,6 +108,41 @@ class SuperViewController: UIViewController, SliderMenuDelegate {
     func navigateToCheckIn() -> Void {
         let checkInVC = self.storyboard?.instantiateViewController(withIdentifier: "CheckIn") as! CheckIn
         self.navigationController?.pushViewController(checkInVC, animated: true)
+    }
+    
+    
+    //MARK: - Contact Us
+    func contactUs() -> Void {
+        if MFMailComposeViewController.canSendMail() {
+            let composeVC = MFMailComposeViewController()
+            
+            composeVC.mailComposeDelegate = self
+            
+            // Configure the fields of the interface.
+            composeVC.setToRecipients(["support@hrdatacube.com"])
+            //composeVC.setSubject("StoryBook Feedback")
+            //composeVC.setMessageBody("Hey Josh! Here's my feedback.", isHTML: false)
+            
+            // Present the view controller modally.
+            self.present(composeVC, animated: true, completion: nil)
+        }else {
+            AppUtils.showAlertWithTitle(title: "", message: "Mail app is not configure in your device.", viewController: self)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .cancelled:
+            print("Mail cancelled")
+        case .saved:
+            print("Mail saved")
+        case .sent:
+            print("Mail sent")
+        case .failed:
+            print("Mail sent failure: \(error?.localizedDescription ?? "Mail not succeed.")")
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     
