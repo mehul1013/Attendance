@@ -24,7 +24,7 @@ class Login: SuperViewController {
     
     @IBOutlet weak var btnSubmit: UIButton!
     
-    let arrayCompany = ["Company 1", "Company 2"]
+    let arrayCompany = ["Gcell", "Mace"]
     var indexCompanySelected = 0
     
     
@@ -101,6 +101,22 @@ class Login: SuperViewController {
     
     //MARK: - Submit
     @IBAction func btnSubmitClicked(_ sender: Any) {
+        //Validation
+        if (txtCompany.text?.characters.count)! <= 0 {
+            AppUtils.showAlertWithTitle(title: "", message: "Please select company.", viewController: self)
+        }else if (txtUserID.text?.characters.count)! <= 0 {
+            AppUtils.showAlertWithTitle(title: "", message: "Please provide User ID.", viewController: self)
+        }else if (txtPassword.text?.characters.count)! <= 0 {
+            AppUtils.showAlertWithTitle(title: "", message: "Please provide password.", viewController: self)
+        }else {
+            //Call WS
+            self.loginWS()
+        }
+    }
+    
+    
+    //MARK: - Web Services
+    func loginWS() -> Void {
         //Navigate to Dashboard
         let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoardIdentifier.storyDashboardVC) as! Dashboard
         

@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -102,6 +103,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HZU-Bd-tcH"/>
+                    <connections>
+                        <outlet property="mapView" destination="cgC-5G-fzC" id="GVx-Y5-tCH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -228,6 +232,70 @@
                                             <outlet property="lblTitle" destination="yib-eK-nw1" id="sG3-h4-eIS"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSearch" rowHeight="45" id="dNI-zn-bjG" customClass="CellCheckIn" customModule="Attendance" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="162" width="375" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dNI-zn-bjG" id="MSM-CD-iQc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f05-9Z-MuK">
+                                                    <rect key="frame" x="15" y="7" width="275" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="TbJ-bc-Ngh" id="mrP-Og-XRt"/>
+                                                    </connections>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmn-Qg-1pG">
+                                                    <rect key="frame" x="298" y="7" width="67" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="67" id="cep-nc-3lK"/>
+                                                        <constraint firstAttribute="height" constant="30" id="eq2-be-P9v"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                                    <state key="normal" title="Cancel"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="f05-9Z-MuK" firstAttribute="centerY" secondItem="MSM-CD-iQc" secondAttribute="centerY" id="CBc-8i-eD1"/>
+                                                <constraint firstItem="gmn-Qg-1pG" firstAttribute="leading" secondItem="f05-9Z-MuK" secondAttribute="trailing" constant="8" id="Q96-2g-Amc"/>
+                                                <constraint firstItem="f05-9Z-MuK" firstAttribute="leading" secondItem="MSM-CD-iQc" secondAttribute="leadingMargin" constant="7" id="Uqn-oZ-vnA"/>
+                                                <constraint firstAttribute="trailing" secondItem="gmn-Qg-1pG" secondAttribute="trailing" constant="10" id="WnO-XD-uhp"/>
+                                                <constraint firstItem="gmn-Qg-1pG" firstAttribute="centerY" secondItem="MSM-CD-iQc" secondAttribute="centerY" id="gd1-pQ-v75"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnCancel" destination="gmn-Qg-1pG" id="gdd-4a-GYC"/>
+                                            <outlet property="txtSearchLocation" destination="f05-9Z-MuK" id="U8i-yH-ZNe"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellAddress" id="XJn-Eu-v4k" customClass="CellCheckIn" customModule="Attendance" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="207" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XJn-Eu-v4k" id="SrJ-Xl-cHQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fn1-ab-VOe">
+                                                    <rect key="frame" x="15" y="8" width="345" height="43"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Fn1-ab-VOe" firstAttribute="centerX" secondItem="SrJ-Xl-cHQ" secondAttribute="centerX" id="D2F-eD-Q4j"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fn1-ab-VOe" secondAttribute="trailing" constant="15" id="EtJ-Rh-AdR"/>
+                                                <constraint firstItem="Fn1-ab-VOe" firstAttribute="leading" secondItem="SrJ-Xl-cHQ" secondAttribute="leading" constant="15" id="GOx-Ft-7Ro"/>
+                                                <constraint firstItem="Fn1-ab-VOe" firstAttribute="centerY" secondItem="SrJ-Xl-cHQ" secondAttribute="centerY" id="cZi-Kt-kky"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblTitle" destination="Fn1-ab-VOe" id="5TE-zL-Lyk"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="TbJ-bc-Ngh" id="Kaz-z5-feN"/>
@@ -237,6 +305,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableLocation" destination="fyc-Ez-9Cy" id="qv4-MT-5hS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBn-Gb-Be9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,7 +318,7 @@
             <objects>
                 <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OU4-KG-YUN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2D5-BH-5qt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2D5-BH-5qt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.047058823530000002" green="0.71372549019999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

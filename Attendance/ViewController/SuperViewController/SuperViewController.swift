@@ -163,5 +163,33 @@ class SuperViewController: UIViewController, SliderMenuDelegate, MFMailComposeVi
     }
     
 
+    //MARK: - Convert Data to Dictionary
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+    
+    //MARK: - Check Location Permission
+    func isLocationPermitted() -> Bool {
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .notDetermined, .restricted, .denied:
+                print("No access")
+                return false
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Access")
+                return true
+            }
+        }else {
+            print("Location services are not enabled")
+            return false
+        }
+    }
 
 }

@@ -7,17 +7,32 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
     var isSliderMenuInitialise: Bool = false
+    let locationManager = CLLocationManager()
+    var latitude = 0.0
+    var longitude = 0.0
 
 
     //MARK: - Application Life Cycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //For Location
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
         return true
     }
 
@@ -43,6 +58,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    //MARK: - Locatio Manager Delegate
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        //Set Coordinates
+        self.latitude = 23.0225
+        self.longitude = 72.5714
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        //Get Coordinates
+        self.latitude = locValue.latitude
+        self.longitude = locValue.longitude
+    }
 
 }
 

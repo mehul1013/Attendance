@@ -10,11 +10,12 @@ import UIKit
 
 class Constants: NSObject {
     
-    static let AppName     = "CleanDate"
+    static let AppName     = "Gcell"
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static let UserDefault = UserDefaults.standard
     
     //GIPHY API KEY
+    static let API_KEY_GOOGLE = "AIzaSyBY1m9v5JrSleEP_Pu46M7r7yKf-HS-dTU"
     static let API_KEY_GIPHY = "dc6zaTOxFJmzC"
     
     static let CleanDate_WebSite     = "https://www.cleandate.com"
