@@ -19,7 +19,11 @@ class CellCheckIn: UITableViewCell {
     @IBOutlet weak var txtSearchLocation: UITextField!
     @IBOutlet weak var btnCancel: UIButton!
     
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblDistance: UILabel!
     
+    @IBOutlet weak var lblStartToEndLocation: UILabel!
+    @IBOutlet weak var lblTime: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

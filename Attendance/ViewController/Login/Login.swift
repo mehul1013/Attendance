@@ -101,26 +101,39 @@ class Login: SuperViewController {
     
     //MARK: - Submit
     @IBAction func btnSubmitClicked(_ sender: Any) {
-        //Validation
-        if (txtCompany.text?.characters.count)! <= 0 {
-            AppUtils.showAlertWithTitle(title: "", message: "Please select company.", viewController: self)
-        }else if (txtUserID.text?.characters.count)! <= 0 {
-            AppUtils.showAlertWithTitle(title: "", message: "Please provide User ID.", viewController: self)
-        }else if (txtPassword.text?.characters.count)! <= 0 {
-            AppUtils.showAlertWithTitle(title: "", message: "Please provide password.", viewController: self)
-        }else {
+//        //Validation
+//        if (txtCompany.text?.characters.count)! <= 0 {
+//            AppUtils.showAlertWithTitle(title: "", message: "Please select company.", viewController: self)
+//        }else if (txtUserID.text?.characters.count)! <= 0 {
+//            AppUtils.showAlertWithTitle(title: "", message: "Please provide User ID.", viewController: self)
+//        }else if (txtPassword.text?.characters.count)! <= 0 {
+//            AppUtils.showAlertWithTitle(title: "", message: "Please provide password.", viewController: self)
+//        }else {
             //Call WS
             self.loginWS()
-        }
+//        }
     }
     
     
     //MARK: - Web Services
     func loginWS() -> Void {
+        //Show Loader
+        //Run on main thread
+        DispatchQueue.main.async {
+            //AppUtils.showLoader()
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+        }
+        
         //Navigate to Dashboard
         let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoardIdentifier.storyDashboardVC) as! Dashboard
         
         self.navigationController?.pushViewController(dashboardVC, animated: true)
+        
+        //Run on main thread
+        DispatchQueue.main.async {
+            //AppUtils.hideLoader()
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+        }
     }
     
 }

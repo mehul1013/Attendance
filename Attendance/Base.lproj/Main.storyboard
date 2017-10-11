@@ -318,7 +318,7 @@
             <objects>
                 <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OU4-KG-YUN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2D5-BH-5qt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2D5-BH-5qt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.047058823530000002" green="0.71372549019999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -609,6 +609,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="lblDate" destination="Hqj-ZK-C2F" id="cXV-78-NuM"/>
+                                            <outlet property="lblDistance" destination="eTr-Tj-Mhb" id="eJR-dl-4Hq"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSearchLocation" rowHeight="67" id="eGx-k5-t9H" customClass="CellCheckIn" customModule="Attendance" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="83" width="375" height="67"/>
@@ -671,6 +675,8 @@
                                         <connections>
                                             <outlet property="btnSearchLocation" destination="lN1-Ds-2UH" id="XSx-Po-10W"/>
                                             <outlet property="lblAddress" destination="7SW-FM-U4r" id="fE5-a4-qOp"/>
+                                            <outlet property="lblStartToEndLocation" destination="VHr-7d-vTS" id="FOX-vC-JCn"/>
+                                            <outlet property="lblTime" destination="7SW-FM-U4r" id="lbV-8d-dHK"/>
                                             <outlet property="lblTitle" destination="VHr-7d-vTS" id="eOp-wZ-rf6"/>
                                         </connections>
                                     </tableViewCell>
@@ -683,6 +689,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableViewMyVisits" destination="Yts-Ei-Fau" id="0bm-B2-LDn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88z-Xg-r6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

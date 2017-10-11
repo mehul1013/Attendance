@@ -34,7 +34,7 @@ class AppUtils: NSObject {
         
         viewController.present(alert, animated: true, completion: nil)
     }
-    
+        
     
     
 }

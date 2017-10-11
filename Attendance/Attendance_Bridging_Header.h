@@ -10,5 +10,6 @@
 #define Attendance_Bridging_Header_h
 
 #import "Reachability.h"
+#import "MBProgressHUD.h"
 
 #endif /* Attendance_Bridging_Header_h */
