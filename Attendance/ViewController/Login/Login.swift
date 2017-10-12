@@ -99,9 +99,10 @@ class Login: SuperViewController {
         }
     }
     
+    
     //MARK: - Submit
     @IBAction func btnSubmitClicked(_ sender: Any) {
-//        //Validation
+        //Validation
 //        if (txtCompany.text?.characters.count)! <= 0 {
 //            AppUtils.showAlertWithTitle(title: "", message: "Please select company.", viewController: self)
 //        }else if (txtUserID.text?.characters.count)! <= 0 {

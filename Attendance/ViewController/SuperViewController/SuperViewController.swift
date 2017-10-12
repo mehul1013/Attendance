@@ -81,6 +81,7 @@ class SuperViewController: UIViewController, SliderMenuDelegate, MFMailComposeVi
             //Profile
         }else if index == SliderMenuOption.MY_TEAM {
             //My Team
+            self.navigateToMyTeam()
         }else if index == SliderMenuOption.MY_VISIT {
             //My Visit
             self.navigateToMtyVisits()
@@ -97,12 +98,18 @@ class SuperViewController: UIViewController, SliderMenuDelegate, MFMailComposeVi
     }
     
     
+    //MARK: - My Team
+    func navigateToMyTeam() -> Void {
+        let myVisitVC = self.storyboard?.instantiateViewController(withIdentifier: "MyTeam") as! MyTeam
+        self.navigationController?.pushViewController(myVisitVC, animated: true)
+    }
+    
+    
     //MARK: - My Visits
     func navigateToMtyVisits() -> Void {
         let myVisitVC = self.storyboard?.instantiateViewController(withIdentifier: "MyVisits") as! MyVisits
         self.navigationController?.pushViewController(myVisitVC, animated: true)
     }
-    
     
     //MARK: - Check-In
     func navigateToCheckIn() -> Void {
