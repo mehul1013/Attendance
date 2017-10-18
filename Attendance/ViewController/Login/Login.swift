@@ -103,21 +103,24 @@ class Login: SuperViewController {
     //MARK: - Submit
     @IBAction func btnSubmitClicked(_ sender: Any) {
         //Validation
-//        if (txtCompany.text?.characters.count)! <= 0 {
-//            AppUtils.showAlertWithTitle(title: "", message: "Please select company.", viewController: self)
-//        }else if (txtUserID.text?.characters.count)! <= 0 {
-//            AppUtils.showAlertWithTitle(title: "", message: "Please provide User ID.", viewController: self)
-//        }else if (txtPassword.text?.characters.count)! <= 0 {
-//            AppUtils.showAlertWithTitle(title: "", message: "Please provide password.", viewController: self)
-//        }else {
+        if (txtCompany.text?.characters.count)! <= 0 {
+            AppUtils.showAlertWithTitle(title: "", message: "Please select company.", viewController: self)
+        }else if (txtUserID.text?.characters.count)! <= 0 {
+            AppUtils.showAlertWithTitle(title: "", message: "Please provide User ID.", viewController: self)
+        }else if (txtPassword.text?.characters.count)! <= 0 {
+            AppUtils.showAlertWithTitle(title: "", message: "Please provide password.", viewController: self)
+        }else {
             //Call WS
             self.loginWS()
-//        }
+        }
     }
     
     
     //MARK: - Web Services
     func loginWS() -> Void {
+        //Hide Keyboard
+        self.view.endEditing(true)
+        
         //Show Loader
         //Run on main thread
         DispatchQueue.main.async {
@@ -125,6 +128,66 @@ class Login: SuperViewController {
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
         
+        let url = URL(string: "https://gcell.hrdatacube.com/WebService.asmx/Login?userid=\(txtUserID.text!)&password=\(txtPassword.text!)&company=\(txtCompany.text!)")
+        var request : URLRequest = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? [AnyObject] {
+                    print("\n\nLogin : \(jsonResult)\n\n")
+                    //Use GCD to invoke the completion handler on the main thread
+                    
+                    let dictData = jsonResult.first as! [String : AnyObject]
+                    if let _ = dictData["LOGIN_ID"] {
+                        //Login Success
+                        DispatchQueue.main.async {
+                            //Get and Save information
+                            AppUtils.APPDELEGATE().LoginID          = dictData["LOGIN_ID"]          as! String
+                            AppUtils.APPDELEGATE().Role             = "\(dictData["ROLE"]!)"
+                            AppUtils.APPDELEGATE().Name             = dictData["NAME"]              as! String
+                            AppUtils.APPDELEGATE().DepartmentName   = dictData["department_name"]   as! String
+                            AppUtils.APPDELEGATE().DesignationName  = dictData["designationname"]   as! String
+                            AppUtils.APPDELEGATE().CompanyID        = "\(dictData["companyid"]!)"
+                            AppUtils.APPDELEGATE().BranchID         = "\(dictData["BRANCH_ID"]!)"
+                            
+                            
+                            //Navigate to Dashboard
+                            let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoardIdentifier.storyDashboardVC) as! Dashboard
+                            
+                            self.navigationController?.pushViewController(dashboardVC, animated: true)
+                        }
+                    }else {
+                        //Error
+                        let messgae = dictData["msg"] as! String
+                        AppUtils.showAlertWithTitle(title: "", message: messgae, viewController: self)
+                    }
+                }
+                
+                //Run on main thread
+                DispatchQueue.main.async {
+                    //AppUtils.hideLoader()
+                    MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                }
+                
+            } catch let error as NSError {
+                //Run on main thread
+                DispatchQueue.main.async {
+                    //AppUtils.hideLoader()
+                    MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                }
+                print(error.localizedDescription)
+            }
+            
+        }
+        dataTask.resume()
+        
+        
+        
+        
+        
+        /*
         //Navigate to Dashboard
         let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoardIdentifier.storyDashboardVC) as! Dashboard
         
@@ -135,6 +198,7 @@ class Login: SuperViewController {
             //AppUtils.hideLoader()
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
         }
+        */
     }
     
 }
@@ -173,6 +237,8 @@ extension Login: UITextFieldDelegate {
                 print("values = \(values ?? "No Values")")
                 //Get and Set Value
                 self.txtCompany.text = "\(values!)"
+                
+                AppUtils.APPDELEGATE().Company = values as! String
                 
                 //Get Selected Index
                 self.indexCompanySelected = indexes

@@ -161,21 +161,30 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfy-97-tWj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2f2-aj-eua" firstAttribute="top" secondItem="OO3-9g-Hhz" secondAttribute="top" constant="3" id="5KG-BO-UnZ"/>
                                                 <constraint firstItem="OO3-9g-Hhz" firstAttribute="centerY" secondItem="H5S-wg-DN5" secondAttribute="centerY" id="CTU-b3-rep"/>
                                                 <constraint firstItem="b4h-af-LCW" firstAttribute="top" secondItem="2f2-aj-eua" secondAttribute="bottom" id="HDi-LC-K0O"/>
                                                 <constraint firstItem="2f2-aj-eua" firstAttribute="leading" secondItem="OO3-9g-Hhz" secondAttribute="trailing" constant="10" id="NjH-3j-Z5n"/>
+                                                <constraint firstAttribute="bottom" secondItem="Tfy-97-tWj" secondAttribute="bottom" constant="-0.5" id="YFV-0e-a52"/>
                                                 <constraint firstItem="OO3-9g-Hhz" firstAttribute="leading" secondItem="H5S-wg-DN5" secondAttribute="leading" constant="20" id="d6V-qb-YgI"/>
                                                 <constraint firstItem="b4h-af-LCW" firstAttribute="leading" secondItem="OO3-9g-Hhz" secondAttribute="trailing" constant="10" id="fcU-z8-d4o"/>
+                                                <constraint firstItem="Tfy-97-tWj" firstAttribute="leading" secondItem="H5S-wg-DN5" secondAttribute="leading" id="ooQ-f9-n40"/>
+                                                <constraint firstItem="Tfy-97-tWj" firstAttribute="top" secondItem="H5S-wg-DN5" secondAttribute="top" id="rXI-Fb-LMp"/>
                                                 <constraint firstAttribute="trailing" secondItem="b4h-af-LCW" secondAttribute="trailing" constant="8" id="sv5-sG-kcH"/>
                                                 <constraint firstAttribute="trailing" secondItem="2f2-aj-eua" secondAttribute="trailing" constant="8" id="vUO-oH-PoY"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tfy-97-tWj" secondAttribute="trailing" id="x5h-xv-wqz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="0.39739404965753422" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="btnCurrentLocation" destination="OO3-9g-Hhz" id="adB-ID-kmN"/>
+                                            <outlet property="btnSendCurrentLocation" destination="Tfy-97-tWj" id="rUo-SJ-puj"/>
                                             <outlet property="lblAddress" destination="b4h-af-LCW" id="Jg9-Me-1Gw"/>
                                             <outlet property="lblTitle" destination="2f2-aj-eua" id="uNc-OE-P9e"/>
                                         </connections>
@@ -318,7 +327,7 @@
             <objects>
                 <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OU4-KG-YUN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2D5-BH-5qt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2D5-BH-5qt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.047058823530000002" green="0.71372549019999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

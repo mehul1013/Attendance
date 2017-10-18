@@ -83,8 +83,8 @@ class MyTeam: SuperViewController {
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
         
-        let strEmployeeCode = "6000"
-        let strCompany = "Gcell"
+        let strEmployeeCode = AppUtils.APPDELEGATE().LoginID
+        let strCompany = AppUtils.APPDELEGATE().Company
         let strDate = "2017-10-11"
         
         let url = URL(string: "https://gcell.hrdatacube.com/WebService.asmx/show_checkIn?empcode=\(strEmployeeCode)&company=\(strCompany)&Date=\(strDate)")

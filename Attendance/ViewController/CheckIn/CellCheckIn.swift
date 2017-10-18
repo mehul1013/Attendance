@@ -10,6 +10,10 @@ import UIKit
 
 class CellCheckIn: UITableViewCell {
     
+    //CellCurrentLocation
+    @IBOutlet weak var btnSendCurrentLocation: UIButton!
+    
+    
     @IBOutlet weak var btnCurrentLocation: UIButton!
     @IBOutlet weak var btnSearchLocation: UIButton!
     

@@ -17,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     let locationManager = CLLocationManager()
     var latitude = 0.0
     var longitude = 0.0
+    
+    var LoginID = "0"
+    var Company = "Gcell"
+    var Role = "0"
+    var Name = ""
+    var DepartmentName = ""
+    var DesignationName = ""
+    var CompanyID = ""
+    var BranchID  = ""
 
 
     //MARK: - Application Life Cycle
@@ -73,6 +82,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         //Get Coordinates
         self.latitude = locValue.latitude
         self.longitude = locValue.longitude
+        
+        self.locationManager.stopUpdatingLocation()
     }
 
 }

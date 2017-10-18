@@ -71,11 +71,13 @@ class Dashboard: SuperViewController {
         
         self.mapView.setRegion(region, animated: true)
         
+        /*
         //Pin to Current Location
         let myAnnotation: MKPointAnnotation = MKPointAnnotation()
         myAnnotation.coordinate = center
         myAnnotation.title = "Current location"
         self.mapView.addAnnotation(myAnnotation)
+         */
     }
     
     
