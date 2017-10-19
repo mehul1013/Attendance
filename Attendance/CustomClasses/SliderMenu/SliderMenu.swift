@@ -19,6 +19,9 @@ class SliderMenu: UIView {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesignation: UILabel!
     
+    @IBOutlet weak var btnMyTeam: UIButton!
+    @IBOutlet weak var constraintHeight_MyTeam: NSLayoutConstraint!
+    
     var delegate: SliderMenuDelegate!
     
     
@@ -27,6 +30,45 @@ class SliderMenu: UIView {
         //Layer Properties
         btnProfile.layer.cornerRadius = btnProfile.frame.size.width / 2
         btnProfile.layer.masksToBounds = true
+        
+        //Assign Name
+        lblName.text = AppUtils.APPDELEGATE().Name
+        lblDesignation.text = AppUtils.APPDELEGATE().DesignationName
+        
+        //Name Letters
+        let arrayName = AppUtils.APPDELEGATE().Name.components(separatedBy: " ")
+        var firstName = ""
+        var lastName = ""
+        if arrayName.count > 0 {
+            firstName = arrayName.first!
+        }
+        if arrayName.count > 1 {
+            lastName = arrayName.last!
+        }
+        //firstName = Array(firstName)[0]
+        if firstName.characters.count > 0 {
+            let firstChar = firstName[firstName.index(firstName.startIndex, offsetBy: 0)]
+            let lastChar  = lastName[lastName.index(lastName.startIndex, offsetBy: 0)]
+            
+            btnProfile.setTitle("\(firstChar)\(lastChar)", for: .normal)
+        }else {
+            btnProfile.setTitle("", for: .normal)
+        }
+        
+        
+        
+        //Check if MY TEAM need to show or not
+        if AppUtils.APPDELEGATE().Role == "5" {
+            //Do Nothing
+            btnMyTeam.isHidden = false
+            constraintHeight_MyTeam.constant = 35
+            self.layoutIfNeeded()
+        }else {
+            //Hide MY TEAM option
+            btnMyTeam.isHidden = true
+            constraintHeight_MyTeam.constant = 0
+            self.layoutIfNeeded()
+        }
     }
     
     //MARK: - Close Menu

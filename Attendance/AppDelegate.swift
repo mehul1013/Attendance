@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var DesignationName = ""
     var CompanyID = ""
     var BranchID  = ""
+    var imageProfile = ""
 
 
     //MARK: - Application Life Cycle
@@ -41,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        
+                
         return true
     }
 

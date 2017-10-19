@@ -212,7 +212,12 @@ class CheckIn: SuperViewController {
     func checkLastCheckInAvailableOrNot() -> Void {
         let strEmployeeCode = AppUtils.APPDELEGATE().LoginID
         let strCompany = AppUtils.APPDELEGATE().Company
-        let strDate = "2017-10-18"
+        
+        //Get Date
+        let date = Date()
+        let formatterDate = DateFormatter()
+        formatterDate.dateFormat = "yyyy-MM-dd"
+        let strDate = formatterDate.string(from: date)
         
         let strURL = "https://gcell.hrdatacube.com/WebService.asmx/lastCheckIn?empcode=\(strEmployeeCode)&comp=\(strCompany)&Date=\(strDate)"
         let url = URL(string: strURL)

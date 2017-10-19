@@ -85,7 +85,12 @@ class MyTeam: SuperViewController {
         
         let strEmployeeCode = AppUtils.APPDELEGATE().LoginID
         let strCompany = AppUtils.APPDELEGATE().Company
-        let strDate = "2017-10-11"
+        
+        //Get Date
+        let date = Date()
+        let formatterDate = DateFormatter()
+        formatterDate.dateFormat = "yyyy-MM-dd"
+        let strDate = formatterDate.string(from: date)
         
         let url = URL(string: "https://gcell.hrdatacube.com/WebService.asmx/show_checkIn?empcode=\(strEmployeeCode)&company=\(strCompany)&Date=\(strDate)")
         var request : URLRequest = URLRequest(url: url!)
@@ -133,17 +138,22 @@ class MyTeam: SuperViewController {
             
             //Add New Annotation
             for dict in self.arrayData {
-                //Get Coordinate
-                let latitude  = Float(dict["lat"] as! String)
-                let longitude = Float(dict["log"] as! String)
-                let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude!), longitude: CLLocationDegrees(longitude!))
-                
-                //Pin to Current Location
-                let myAnnotation: MKPointAnnotation = MKPointAnnotation()
-                myAnnotation.coordinate = center
-                myAnnotation.title = dict["origin"] as? String
-                myAnnotation.subtitle = dict["origin"] as? String
-                self.mapView.addAnnotation(myAnnotation)
+                if let message = dict["msg"] {
+                    //Show Alert
+                    AppUtils.showAlertWithTitle(title: "", message: message as! String, viewController: self)
+                }else {
+                    //Get Coordinate
+                    let latitude  = Float(dict["lat"] as! String)
+                    let longitude = Float(dict["log"] as! String)
+                    let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude!), longitude: CLLocationDegrees(longitude!))
+                    
+                    //Pin to Current Location
+                    let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+                    myAnnotation.coordinate = center
+                    myAnnotation.title = dict["origin"] as? String
+                    myAnnotation.subtitle = dict["origin"] as? String
+                    self.mapView.addAnnotation(myAnnotation)
+                }
             }
             
             //Centralised Map

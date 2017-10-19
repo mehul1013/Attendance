@@ -228,7 +228,9 @@
                 <constraint firstItem="DoJ-cx-nda" firstAttribute="top" secondItem="kQ0-cB-5Xg" secondAttribute="bottom" id="tG0-0R-6Jl"/>
             </constraints>
             <connections>
+                <outlet property="btnMyTeam" destination="CSY-ak-grh" id="w6h-zf-Qdj"/>
                 <outlet property="btnProfile" destination="c7Q-Bk-ETQ" id="Nr1-ji-aiW"/>
+                <outlet property="constraintHeight_MyTeam" destination="7tX-oc-Nes" id="hHM-ZX-srX"/>
                 <outlet property="lblDesignation" destination="cda-Js-YBy" id="PES-Af-s2u"/>
                 <outlet property="lblName" destination="QNS-64-MCW" id="50T-bD-LWt"/>
             </connections>

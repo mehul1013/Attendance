@@ -67,6 +67,9 @@ class SuperViewController: UIViewController, SliderMenuDelegate, MFMailComposeVi
     func btnMenuClicked() -> Void {
         print("Menu Button Clicked")
         
+        //Set Attributes
+        SuperViewController.sliderMenu.setAttributes()
+        
         UIView.animate(withDuration: 0.3, animations: {
             //Set Frame
             SuperViewController.sliderMenu.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
@@ -161,6 +164,18 @@ class SuperViewController: UIViewController, SliderMenuDelegate, MFMailComposeVi
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Logout", style: .default, handler: { action in
+            
+            //Clear User Default data
+            UserDefaults.standard.set(nil, forKey: "LOGIN_ID")
+            UserDefaults.standard.set(nil, forKey: "ROLE")
+            UserDefaults.standard.set(nil, forKey: "NAME")
+            UserDefaults.standard.set(nil, forKey: "department_name")
+            UserDefaults.standard.set(nil, forKey: "designationname")
+            UserDefaults.standard.set(nil, forKey: "companyid")
+            UserDefaults.standard.set(nil, forKey: "BRANCH_ID")
+            UserDefaults.standard.synchronize()
+
+            
             // do something like...
             self.navigationController?.popToRootViewController(animated: true)
         }))

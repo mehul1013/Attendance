@@ -35,14 +35,33 @@ class Login: SuperViewController {
         
         //Setup UI
         self.setupUI()
-        
-        //Show Animation
-        Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(startAnimation), userInfo: nil, repeats: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //No need to show Navigation Bar
         self.navigationController?.isNavigationBarHidden = true
+        
+        //Auto Login
+        //Check Login data available
+        if let loginID = UserDefaults.standard.value(forKey: "LOGIN_ID") as? String {
+            //Login Data available
+            print("Login ID : \(loginID)")
+            
+            //Get and Set Data
+            AppUtils.APPDELEGATE().LoginID = loginID
+            AppUtils.APPDELEGATE().Role = UserDefaults.standard.value(forKey: "ROLE") as! String
+            AppUtils.APPDELEGATE().Name = UserDefaults.standard.value(forKey: "NAME") as! String
+            AppUtils.APPDELEGATE().DepartmentName = UserDefaults.standard.value(forKey: "department_name") as! String
+            AppUtils.APPDELEGATE().DesignationName = UserDefaults.standard.value(forKey: "designationname") as! String
+            AppUtils.APPDELEGATE().CompanyID = UserDefaults.standard.value(forKey: "companyid") as! String
+            AppUtils.APPDELEGATE().BranchID = UserDefaults.standard.value(forKey: "BRANCH_ID") as! String
+            AppUtils.APPDELEGATE().imageProfile = UserDefaults.standard.value(forKey: "Image") as! String
+            
+            self.navigateToDashboard()
+        }else {
+            //Show Animation
+            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(startAnimation), userInfo: nil, repeats: false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -151,12 +170,21 @@ class Login: SuperViewController {
                             AppUtils.APPDELEGATE().DesignationName  = dictData["designationname"]   as! String
                             AppUtils.APPDELEGATE().CompanyID        = "\(dictData["companyid"]!)"
                             AppUtils.APPDELEGATE().BranchID         = "\(dictData["BRANCH_ID"]!)"
+                            AppUtils.APPDELEGATE().imageProfile     = dictData["Image"]             as! String
                             
+                            //Save in USER DEFAULT
+                            UserDefaults.standard.set(AppUtils.APPDELEGATE().LoginID, forKey: "LOGIN_ID")
+                            UserDefaults.standard.set(AppUtils.APPDELEGATE().Role, forKey: "ROLE")
+                            UserDefaults.standard.set(AppUtils.APPDELEGATE().Name, forKey: "NAME")
+                            UserDefaults.standard.set(AppUtils.APPDELEGATE().DepartmentName, forKey: "department_name")
+                            UserDefaults.standard.set(AppUtils.APPDELEGATE().DesignationName, forKey: "designationname")
+                            UserDefaults.standard.set(AppUtils.APPDELEGATE().CompanyID, forKey: "companyid")
+                            UserDefaults.standard.set(AppUtils.APPDELEGATE().BranchID, forKey: "BRANCH_ID")
+                            UserDefaults.standard.set(AppUtils.APPDELEGATE().imageProfile, forKey: "Image")
+                            UserDefaults.standard.synchronize()
                             
                             //Navigate to Dashboard
-                            let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoardIdentifier.storyDashboardVC) as! Dashboard
-                            
-                            self.navigationController?.pushViewController(dashboardVC, animated: true)
+                            self.navigateToDashboard()
                         }
                     }else {
                         //Error
@@ -199,6 +227,14 @@ class Login: SuperViewController {
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
         }
         */
+    }
+    
+    
+    //MARK: - Navigate to Dashboard
+    func navigateToDashboard() -> Void {
+        let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoardIdentifier.storyDashboardVC) as! Dashboard
+        
+        self.navigationController?.pushViewController(dashboardVC, animated: true)
     }
     
 }

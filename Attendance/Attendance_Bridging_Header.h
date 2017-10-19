@@ -11,5 +11,7 @@
 
 #import "Reachability.h"
 #import "MBProgressHUD.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 
 #endif /* Attendance_Bridging_Header_h */

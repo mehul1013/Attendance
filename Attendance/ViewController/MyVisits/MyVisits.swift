@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import ActionSheetPicker_3_0
 
 class MyVisits: SuperViewController {
 
     @IBOutlet weak var tableViewMyVisits: UITableView!
     
-    var dictData: NSDictionary!
+    var arrayMyVisit = [AnyObject]()
+    var lblNoData = UILabel()
+    
+    var strDate: String!
     
     
     //MARK: - View Life Cycle
@@ -23,8 +27,28 @@ class MyVisits: SuperViewController {
         //Navigation Bar Title
         self.navigationItem.title = "My Visits"
         
+        //Remove Extra Lines
+        self.tableViewMyVisits.tableFooterView = UIView(frame: CGRect.zero)
+        self.tableViewMyVisits.estimatedRowHeight = 67
+        
+        //No Data Label
+        lblNoData = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableViewMyVisits.frame.size.width, height: self.tableViewMyVisits.frame.size.height))
+        lblNoData.backgroundColor = UIColor.clear
+        lblNoData.textAlignment = .center
+        lblNoData.text = "No data found"
+        lblNoData.textColor = UIColor.black
+        lblNoData.font = UIFont(name: Constants.Fonts.Roboto_Regular, size: 17.0)
+        self.view.addSubview(lblNoData)
+        lblNoData.isHidden = true
+        
+        //Get Date
+        let date = Date()
+        let formatterDate = DateFormatter()
+        formatterDate.dateFormat = "yyyy-MM-dd"
+        strDate = formatterDate.string(from: date)
+        
         //Call WS
-        self.getMyVisits()
+        self.getMyVisits(strDate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,18 +57,49 @@ class MyVisits: SuperViewController {
     }
     
     
+    
+    //MARK: - Select Date
+    func btnSelectDateClicked() -> Void {
+        ActionSheetDatePicker.show(withTitle: "Select Date", datePickerMode: .date, selectedDate: Date(), minimumDate: nil, maximumDate: Date(), doneBlock: { (picker, indexes, values) in
+            
+            print("Values : \(indexes!)")
+            
+            let selectedDate = indexes as! Date
+            
+            let formatterDate = DateFormatter()
+            formatterDate.dateFormat = "yyyy-MM-dd"
+            self.strDate = formatterDate.string(from: selectedDate)
+            
+            //Call Web Service
+            self.getMyVisits(self.strDate)
+            
+        }, cancel: { (picker) in
+            //Do Nothing
+            return
+        }, origin: self.view)
+    }
+    
+    
     //MARK: - Call Web Services
-    func getMyVisits() -> Void {
+    func getMyVisits(_ strDate: String) -> Void {
+        print("Date : \(strDate)")
+        
         //Run on main thread
         DispatchQueue.main.async {
             //AppUtils.showLoader()
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
         
-        let strEmployeeCode = "6000"
-        let strCompany = "Gcell"
+        //Clear Previous Data
+        arrayMyVisit.removeAll()
         
-        let url = URL(string: "https://gcell.hrdatacube.com/WebService.asmx/last_checking_days?empcode=\(strEmployeeCode)&company=\(strCompany)")
+        //Hide No Data LABEL
+        self.lblNoData.isHidden = true
+        
+        let strEmployeeCode = AppUtils.APPDELEGATE().LoginID
+        let strCompany = AppUtils.APPDELEGATE().Company
+        
+        let url = URL(string: "https://gcell.hrdatacube.com/WebService.asmx/lat_check_in?empcode=\(strEmployeeCode)&comp=\(strCompany)&log_date=\(strDate)")
         var request : URLRequest = URLRequest(url: url!)
         request.httpMethod = "GET"
         
@@ -53,24 +108,39 @@ class MyVisits: SuperViewController {
             
             
             do {
-                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? [AnyObject] {
                     print("\n\nMy Visits : \(jsonResult)\n\n")
-                    
-                    self.dictData = jsonResult
-                    print("Data : \(self.dictData)")
-                    print("\n\nKeys : \(self.dictData.count)")
-                    print("\n\nFirst Key : \(self.dictData.allKeys)")
-                    print("First Object : \(self.dictData.value(forKey: self.dictData.allKeys.first as! String)!)")
-                    
-                    
                     
                     //Run on main thread
                     DispatchQueue.main.async {
-                        //AppUtils.hideLoader()
-                        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
-                        self.tableViewMyVisits.reloadData()
+                        
+                        let dictData = jsonResult.first!
+                        let message = dictData["msg"] as? String
+                        
+                        if message != nil {
+                            //Error
+                            //AppUtils.showAlertWithTitle(title: "", message: message as! String, viewController: self)
+                            self.lblNoData.text = message
+                            self.lblNoData.isHidden = false
+                        }else {
+                            //Success
+                            self.lblNoData.isHidden = true
+                            
+                            self.arrayMyVisit = jsonResult
+                            //print("Data : \(self.arrayMyVisit)")
+                            
+                            self.tableViewMyVisits.reloadData()
+                        }
                     }
                 }
+                
+                //Run on main thread
+                DispatchQueue.main.async {
+                    //AppUtils.hideLoader()
+                    MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                    self.tableViewMyVisits.reloadData()
+                }
+                
             } catch let error as NSError {
                 //Run on main thread
                 DispatchQueue.main.async {
@@ -95,50 +165,78 @@ extension MyVisits: UITableViewDelegate, UITableViewDataSource {
         let cellHeader = tableView.dequeueReusableCell(withIdentifier: "CellHeader") as! CellCheckIn
         cellHeader.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
-        let key = self.dictData.allKeys[section] as? String
-        cellHeader.lblDate.text = key
+        cellHeader.btnDate.setTitle(self.strDate, for: .normal)
+        cellHeader.lblDistance.text = "0 Kms"
+        cellHeader.lblDistance.isHidden = true
+        
+        //Add Target
+        cellHeader.btnDate.addTarget(self, action: #selector(btnSelectDateClicked), for: .touchUpInside)
         
         return cellHeader
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //return 67
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 67
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if self.dictData == nil {
-            return 0
-        }
-        return self.dictData.allKeys.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let key = self.dictData.allKeys[section] as? String
-        
-        print("\nValue : \(self.dictData.value(forKey: key!)!)")
-        
-        let string = self.dictData.value(forKey: key!) as! String
-        let array = string.components(separatedBy: "},") as [AnyObject]
-        
-        return array.count
+        return arrayMyVisit.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CellSearchLocation"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! CellCheckIn
         
-//        let key = self.dictData[indexPath.section] as? String
-//        let array = self.dictData.value(forKey: key!) as? [AnyObject]
-//        let data = array?[indexPath.row] as! NSDictionary
-//        print("Data : \(data)")
+        //Get Model
+        let model = self.arrayMyVisit[indexPath.row] as! [String : AnyObject]
         
-//        let key = self.dictData.allKeys[indexPath.section] as? String
-//        let string = self.dictData.value(forKey: key!) as! String
-//        let array = string.components(separatedBy: "},") as [AnyObject]
-//        let data = array[indexPath.row] as! NSDictionary
-//        print("Data : \(data)")
+        //Location
+        let startLocation = model["origin"] as! String
+        let endLocation   = model["destination"] as! String
+        
+        cell.lblStartToEndLocation.text = startLocation + " - " + endLocation
+        cell.lblStartToEndLocation.numberOfLines = 0
+        
+        //Time
+        let startTime = model["log_time"] as! String
+        let endTime   = model["log_checkout"] as! String
+        
+        cell.lblTime.text = self.getTimeFromDate(startTime) + " - " + self.getTimeFromDate(endTime)
+        
+        //Distance
+        cell.lblDistance.text = model["distance"] as? String
         
         cell.selectionStyle = .none
         return cell
+    }
+    
+    //Get Time from Date
+    func getTimeFromDate(_ strDate: String) -> String {
+        //String to Date
+        let formatterDate = DateFormatter()
+        formatterDate.dateFormat = "HH:mm:ss"
+        
+        let time = strDate.components(separatedBy: "T").last
+        
+        let date = formatterDate.date(from: time!)
+        
+        if date == nil {
+            return ""
+        }
+        
+        //Date to String
+        formatterDate.dateFormat = "hh:mm a"
+        let strTime = formatterDate.string(from: date!)
+        
+        return strTime
     }
 }
