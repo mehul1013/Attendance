@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     var LoginID = "0"
     var Company = "Gcell"
+    var Vendor = ""
     var Role = "0"
     var Name = ""
     var DepartmentName = ""

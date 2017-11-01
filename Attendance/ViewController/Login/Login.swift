@@ -147,7 +147,11 @@ class Login: SuperViewController {
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
         
-        let url = URL(string: "https://gcell.hrdatacube.com/WebService.asmx/Login?userid=\(txtUserID.text!)&password=\(txtPassword.text!)&company=\(txtCompany.text!)")
+        let userID    = txtUserID.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let password  = txtPassword.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let companyID = txtCompany.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        let url = URL(string: "https://gcell.hrdatacube.com/WebService.asmx/Login?userid=\(userID!)&password=\(password!)&company=\(companyID!)")
         var request : URLRequest = URLRequest(url: url!)
         request.httpMethod = "GET"
         
@@ -244,7 +248,8 @@ class Login: SuperViewController {
 extension Login: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 100 {
-            textField.resignFirstResponder()
+            //textField.resignFirstResponder()
+            self.txtUserID.becomeFirstResponder()
         }else if textField.tag == 101 {
             //Navigate to password
             self.txtPassword.becomeFirstResponder()
@@ -263,6 +268,7 @@ extension Login: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        /*
         //Open Picker if it is for Company
         if textField.tag == 100 {
             //No need of KEYBOARD for company selection
@@ -289,12 +295,14 @@ extension Login: UITextFieldDelegate {
                 return
             }, origin: textField)
         }else if textField.tag == 101 || textField.tag == 102 {
+            */
+            
             //Set Constraint Constant value
             self.constraintCenterY_Logo.constant = -200
             
             UIView.animate(withDuration: 0.2, animations: { 
                 self.view.layoutIfNeeded()
             })
-        }
+        //}
     }
 }

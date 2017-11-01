@@ -392,7 +392,7 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="3YU-VR-g3P" id="fal-mU-FJA"/>
                                         </connections>
@@ -438,7 +438,7 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="3YU-VR-g3P" id="hiL-md-AKf"/>
                                         </connections>
@@ -807,6 +807,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSE-eN-kOB" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1516" y="101"/>
+        </scene>
+        <!--Vendor Selection-->
+        <scene sceneID="5KN-1d-NGx">
+            <objects>
+                <viewController storyboardIdentifier="VendorSelection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NRf-ps-1hs" customClass="VendorSelection" customModule="Attendance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T7a-yp-7dc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y3n-x1-hji"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uYu-qf-Exy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mPg-FR-Ki2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSearch" rowHeight="45" id="vjN-Og-YwR" customClass="CellCheckIn" customModule="Attendance" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vjN-Og-YwR" id="xeQ-W5-y3A">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mLL-2x-w5W">
+                                                    <rect key="frame" x="15" y="7" width="287" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="TbJ-bc-Ngh" id="4vB-8E-Ibs"/>
+                                                    </connections>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ED-hq-GA6">
+                                                    <rect key="frame" x="310" y="7" width="55" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="EXy-nX-JM7"/>
+                                                        <constraint firstAttribute="height" constant="30" id="Igu-Qw-LVh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                                    <state key="normal" title="Clear"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mLL-2x-w5W" firstAttribute="centerY" secondItem="xeQ-W5-y3A" secondAttribute="centerY" id="75E-7o-ZbI"/>
+                                                <constraint firstItem="7ED-hq-GA6" firstAttribute="leading" secondItem="mLL-2x-w5W" secondAttribute="trailing" constant="8" id="9mO-1y-Utg"/>
+                                                <constraint firstAttribute="trailing" secondItem="7ED-hq-GA6" secondAttribute="trailing" constant="10" id="Qeq-Pw-kty"/>
+                                                <constraint firstItem="mLL-2x-w5W" firstAttribute="leading" secondItem="xeQ-W5-y3A" secondAttribute="leadingMargin" constant="7" id="iqo-Uq-JBy"/>
+                                                <constraint firstItem="7ED-hq-GA6" firstAttribute="centerY" secondItem="xeQ-W5-y3A" secondAttribute="centerY" id="rCx-KY-62R"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnCancel" destination="7ED-hq-GA6" id="DTf-ay-CsO"/>
+                                            <outlet property="txtSearchLocation" destination="mLL-2x-w5W" id="pyt-gP-AhG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellAddress" id="JD2-40-o5n" customClass="CellCheckIn" customModule="Attendance" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="73" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JD2-40-o5n" id="g3i-0q-7oj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3li-NW-DgH">
+                                                    <rect key="frame" x="15" y="8" width="345" height="43"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="3li-NW-DgH" secondAttribute="trailing" constant="15" id="8vq-3e-LT3"/>
+                                                <constraint firstItem="3li-NW-DgH" firstAttribute="leading" secondItem="g3i-0q-7oj" secondAttribute="leading" constant="15" id="Pf6-IR-6bg"/>
+                                                <constraint firstItem="3li-NW-DgH" firstAttribute="centerX" secondItem="g3i-0q-7oj" secondAttribute="centerX" id="ShT-xf-Qn5"/>
+                                                <constraint firstItem="3li-NW-DgH" firstAttribute="centerY" secondItem="g3i-0q-7oj" secondAttribute="centerY" id="TnA-Ii-1PP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblTitle" destination="3li-NW-DgH" id="4Sf-Lr-QWM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="NRf-ps-1hs" id="yhF-cO-h8f"/>
+                                    <outlet property="delegate" destination="NRf-ps-1hs" id="pb3-x7-zqx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mPg-FR-Ki2" secondAttribute="trailing" id="3Rt-Jb-TXm"/>
+                            <constraint firstItem="mPg-FR-Ki2" firstAttribute="top" secondItem="uYu-qf-Exy" secondAttribute="top" id="LQi-B9-JTO"/>
+                            <constraint firstItem="Y3n-x1-hji" firstAttribute="top" secondItem="mPg-FR-Ki2" secondAttribute="bottom" id="nhe-cp-O8e"/>
+                            <constraint firstItem="mPg-FR-Ki2" firstAttribute="leading" secondItem="uYu-qf-Exy" secondAttribute="leading" id="wxa-yA-FKR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableViewVendor" destination="mPg-FR-Ki2" id="4Fk-8O-qbt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ge-tE-WW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2212" y="100.29985007496252"/>
         </scene>
     </scenes>
     <resources>

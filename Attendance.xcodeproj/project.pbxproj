@@ -119,6 +119,7 @@
 		0EEDBA1F1F5C071000BB97ED /* UtillClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9B51F5C071000BB97ED /* UtillClass.swift */; };
 		0EEDBA211F5C071000BB97ED /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9B91F5C071000BB97ED /* Dashboard.swift */; };
 		0EEDBA231F5C071000BB97ED /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDB9BC1F5C071000BB97ED /* SuperViewController.swift */; };
+		0EF8A0551FA9761B00FAE152 /* VendorSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF8A0541FA9761B00FAE152 /* VendorSelection.swift */; };
 		B94FC3648C1C9FB78C49567F /* Pods_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58AF4F02102EE5CD72A7FE17 /* Pods_Attendance.framework */; };
 /* End PBXBuildFile section */
 
@@ -262,6 +263,7 @@
 		0EEDB9B91F5C071000BB97ED /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		0EEDB9BC1F5C071000BB97ED /* SuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 		0EEDBA241F5C09BA00BB97ED /* Attendance_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Attendance_Bridging_Header.h; sourceTree = "<group>"; };
+		0EF8A0541FA9761B00FAE152 /* VendorSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorSelection.swift; sourceTree = "<group>"; };
 		29A50E16001EB10750822DE5 /* Pods-AttendanceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceUITests/Pods-AttendanceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E8574A052B93389A3355F5D /* Pods-AttendanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceTests/Pods-AttendanceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		58AF4F02102EE5CD72A7FE17 /* Pods_Attendance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attendance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -654,6 +656,7 @@
 		0EEDB9B61F5C071000BB97ED /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0EF8A0531FA9761B00FAE152 /* VendorSelection */,
 				0E0367821F8E911600E6DD1D /* MyTeam */,
 				0E4B4E1B1F82BB6700259BDF /* MyVisits */,
 				0E4B4E141F82AA6000259BDF /* CheckIn */,
@@ -678,6 +681,14 @@
 				0EEDB9BC1F5C071000BB97ED /* SuperViewController.swift */,
 			);
 			path = SuperViewController;
+			sourceTree = "<group>";
+		};
+		0EF8A0531FA9761B00FAE152 /* VendorSelection */ = {
+			isa = PBXGroup;
+			children = (
+				0EF8A0541FA9761B00FAE152 /* VendorSelection.swift */,
+			);
+			path = VendorSelection;
 			sourceTree = "<group>";
 		};
 		95CF5235F46315B2BAA406BD /* Pods */ = {
@@ -859,6 +870,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EF8A0551FA9761B00FAE152 /* VendorSelection.swift in Sources */,
 				0EEDB9EB1F5C071000BB97ED /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				0EEDBA011F5C071000BB97ED /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				0EEDBA231F5C071000BB97ED /* SuperViewController.swift in Sources */,

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 
 class Location: NSObject {
     var name: String        = ""
@@ -161,7 +161,12 @@ class CheckIn: SuperViewController {
         
         let urlwithPercentEscapes = strSearchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
-        let strURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(urlwithPercentEscapes!)&key=\(Constants.API_KEY_GOOGLE)"
+        //Current
+        let lat  = String(AppUtils.APPDELEGATE().latitude)
+        let long = String(AppUtils.APPDELEGATE().longitude)
+        let strLocation = "\(lat),\(long)"
+        
+        let strURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(urlwithPercentEscapes!)&location=\(strLocation)&radius=100&key=\(Constants.API_KEY_GOOGLE)"
         let url = URL(string: strURL)
         var request : URLRequest = URLRequest(url: url!)
         request.httpMethod = "GET"
@@ -383,7 +388,12 @@ class CheckIn: SuperViewController {
         let dayOfWeek = formatterWeek.string(from: date)
         
         
-        let strURL = "https://gcell.hrdatacube.com/WebService.asmx/Check_IN?empcode=\(strEmployeeCode)&lat=\(latitude)&log=\(longitude)&logtime=\(strTime)&logday=\(dayOfWeek)&distance=\(distance)&distancetime=\(distanceTime)&description=phone&logdate=\(strDate)&origin=\(sourceAddress)&log_checkout=\(strDate)&compid=\(strComapnyID)&branchid=\(strBranchID)&checkinmode=0&destination=\(destinationAddress)&company=\(strCompany)"
+        var strURL = "https://gcell.hrdatacube.com/WebService.asmx/Check_IN?empcode=\(strEmployeeCode)&lat=\(latitude)&log=\(longitude)&logtime=\(strTime)&logday=\(dayOfWeek)&distance=\(distance)&distancetime=\(distanceTime)&description=phone&logdate=\(strDate)&origin=\(sourceAddress)&log_checkout=\(strDate)&compid=\(strComapnyID)&branchid=\(strBranchID)&checkinmode=0&destination=\(destinationAddress)&company=\(strCompany)"
+        
+        //If Company name is "Mace" then need to append VENDOR Tag
+        if strCompany.lowercased() == "mace" {
+            strURL = strURL + "&vendor=\(AppUtils.APPDELEGATE().Vendor)"
+        }
         
         let urlwithPercentEscapes = strURL.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
         
@@ -455,6 +465,9 @@ class CheckIn: SuperViewController {
         var request : URLRequest = URLRequest(url: url!)
         request.httpMethod = "GET"
         
+        //Flag
+        var isNeedToCallCheckIn = false
+        
         let dataTask = URLSession.shared.dataTask(with: request) {
             data,response,error in
             print("anything")
@@ -474,11 +487,33 @@ class CheckIn: SuperViewController {
                         
                         print("Latitude : \(self.latitude)")
                         print("Longitude : \(self.longitude)")
+                        
+                        
+                        //Get Distance
+                        let location1 = CLLocation(latitude: location?["lat"] as! CLLocationDegrees, longitude: location?["lng"] as! CLLocationDegrees)
+                        let location2 = CLLocation(latitude: AppUtils.APPDELEGATE().latitude, longitude: AppUtils.APPDELEGATE().longitude)
+                        let distance = location1.distance(from: location2)
+                        print("Distance : \(distance)")
+                        
+                        if distance > 100 {
+                            isNeedToCallCheckIn = false
+                            
+                            //Show Alert
+                            DispatchQueue.main.async {
+                                AppUtils.showAlertWithTitle(title: "", message: "Please select nearby location.", viewController: self)
+                                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                                return
+                            }
+                        }else {
+                            isNeedToCallCheckIn = true
+                        }
                     }
                     
-                    //Check In User
-                    DispatchQueue.main.async {
-                        self.checkInUser()
+                    if isNeedToCallCheckIn == true {
+                        //Check In User
+                        DispatchQueue.main.async {
+                            self.checkInUser()
+                        }
                     }
                 }
                 

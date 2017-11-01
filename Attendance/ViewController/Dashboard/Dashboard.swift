@@ -84,8 +84,16 @@ class Dashboard: SuperViewController {
     
     //MARK: - Check In
     @IBAction func btnCheckInClicked(_ sender: Any) {
-        let checkInVC = self.storyboard?.instantiateViewController(withIdentifier: "CheckIn") as! CheckIn
-        self.navigationController?.pushViewController(checkInVC, animated: true)
+        //If Company name is "Mace" then need to select VENDOR
+        let strCompany = AppUtils.APPDELEGATE().Company
+        
+        if strCompany.lowercased() == "mace" {
+            let vendorVC = self.storyboard?.instantiateViewController(withIdentifier: "VendorSelection") as! VendorSelection
+            self.navigationController?.pushViewController(vendorVC, animated: true)
+        }else {
+            let checkInVC = self.storyboard?.instantiateViewController(withIdentifier: "CheckIn") as! CheckIn
+            self.navigationController?.pushViewController(checkInVC, animated: true)
+        }
     }
     
     //MARK: - My Visits
