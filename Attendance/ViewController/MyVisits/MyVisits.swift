@@ -47,6 +47,8 @@ class MyVisits: SuperViewController {
         formatterDate.dateFormat = "yyyy-MM-dd"
         strDate = formatterDate.string(from: date)
         
+        self.tableViewMyVisits.layoutIfNeeded()
+        
         //Call WS
         self.getMyVisits(strDate)
     }

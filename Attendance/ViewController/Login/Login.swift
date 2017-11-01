@@ -33,6 +33,7 @@ class Login: SuperViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
         //Setup UI
         self.setupUI()
     }
@@ -56,6 +57,7 @@ class Login: SuperViewController {
             AppUtils.APPDELEGATE().CompanyID = UserDefaults.standard.value(forKey: "companyid") as! String
             AppUtils.APPDELEGATE().BranchID = UserDefaults.standard.value(forKey: "BRANCH_ID") as! String
             AppUtils.APPDELEGATE().imageProfile = UserDefaults.standard.value(forKey: "Image") as! String
+            AppUtils.APPDELEGATE().Company = UserDefaults.standard.value(forKey: "CompanyName") as! String
             
             self.navigateToDashboard()
         }else {
@@ -147,6 +149,9 @@ class Login: SuperViewController {
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
         
+        //Get What Company input has
+        AppUtils.APPDELEGATE().Company = txtCompany.text!
+        
         let userID    = txtUserID.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let password  = txtPassword.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let companyID = txtCompany.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
@@ -185,6 +190,7 @@ class Login: SuperViewController {
                             UserDefaults.standard.set(AppUtils.APPDELEGATE().CompanyID, forKey: "companyid")
                             UserDefaults.standard.set(AppUtils.APPDELEGATE().BranchID, forKey: "BRANCH_ID")
                             UserDefaults.standard.set(AppUtils.APPDELEGATE().imageProfile, forKey: "Image")
+                            UserDefaults.standard.set(self.txtCompany.text!, forKey: "CompanyName")
                             UserDefaults.standard.synchronize()
                             
                             //Navigate to Dashboard

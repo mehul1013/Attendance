@@ -19,8 +19,12 @@ class VendorSelection: SuperViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        //Navigation Title
+        self.navigationItem.title = "Vendor Selection"
+        
+        self.tableViewVendor.layoutIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {

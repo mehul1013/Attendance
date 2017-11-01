@@ -39,6 +39,9 @@ class CheckIn: SuperViewController {
     var sourceAddress = "Source"
     var destinationAddress = "Destination"
     
+    var source_City = "Source"
+    var destination_City = "Destination"
+    
     
 
     //MARK: - View Life Cycle
@@ -52,6 +55,8 @@ class CheckIn: SuperViewController {
         //Right Bar Button - Search
         let btnSearch = UIBarButtonItem(image: UIImage(named: "SearchRightBar")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(btnSearchClicked))
         self.navigationItem.rightBarButtonItem = btnSearch
+        
+        self.tableLocation.layoutIfNeeded()
         
         //Get Near By Locations
         self.getNearByLocations()
@@ -388,11 +393,17 @@ class CheckIn: SuperViewController {
         let dayOfWeek = formatterWeek.string(from: date)
         
         
-        var strURL = "https://gcell.hrdatacube.com/WebService.asmx/Check_IN?empcode=\(strEmployeeCode)&lat=\(latitude)&log=\(longitude)&logtime=\(strTime)&logday=\(dayOfWeek)&distance=\(distance)&distancetime=\(distanceTime)&description=phone&logdate=\(strDate)&origin=\(sourceAddress)&log_checkout=\(strDate)&compid=\(strComapnyID)&branchid=\(strBranchID)&checkinmode=0&destination=\(destinationAddress)&company=\(strCompany)"
+        //var strURL = "https://gcell.hrdatacube.com/WebService.asmx/Check_IN?empcode=\(strEmployeeCode)&lat=\(latitude)&log=\(longitude)&logtime=\(strTime)&logday=\(dayOfWeek)&distance=\(distance)&distancetime=\(distanceTime)&description=phone&logdate=\(strDate)&origin=\(sourceAddress)&log_checkout=\(strDate)&compid=\(strComapnyID)&branchid=\(strBranchID)&checkinmode=0&destination=\(destinationAddress)&company=\(strCompany)"
+        
+        var strURL = ""
         
         //If Company name is "Mace" then need to append VENDOR Tag
         if strCompany.lowercased() == "mace" {
-            strURL = strURL + "&vendor=\(AppUtils.APPDELEGATE().Vendor)"
+            strURL = "https://gcell.hrdatacube.com/WebService.asmx/Mace_Check_IN?empcode=\(strEmployeeCode)&lat=\(latitude)&log=\(longitude)&logtime=\(strTime)&logday=\(dayOfWeek)&distance=\(distance)&distancetime=\(distanceTime)&description=phone&logdate=\(strDate)&origin=\(sourceAddress)&log_checkout=\(strDate)&compid=\(strComapnyID)&branchid=\(strBranchID)&checkinmode=0&destination=\(destinationAddress)&company=\(strCompany)"
+            
+            strURL = strURL + "&vendor=\(AppUtils.APPDELEGATE().Vendor)&origin_location=\(sourceAddress)&destination_location=\(destination_City)"
+        }else {
+            strURL = "https://gcell.hrdatacube.com/WebService.asmx/Check_IN?empcode=\(strEmployeeCode)&lat=\(latitude)&log=\(longitude)&logtime=\(strTime)&logday=\(dayOfWeek)&distance=\(distance)&distancetime=\(distanceTime)&description=phone&logdate=\(strDate)&origin=\(sourceAddress)&log_checkout=\(strDate)&compid=\(strComapnyID)&branchid=\(strBranchID)&checkinmode=0&destination=\(destinationAddress)&company=\(strCompany)"
         }
         
         let urlwithPercentEscapes = strURL.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
@@ -420,7 +431,14 @@ class CheckIn: SuperViewController {
                             // add the actions (buttons)
                             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
                                 // do something like...
-                                self.navigationController?.popViewController(animated: true)
+                                let viewControllers: [UIViewController] = self.navigationController!.viewControllers ;
+                                for aViewController in viewControllers {
+                                    if(aViewController is Dashboard){
+                                        self.navigationController?.popToViewController(aViewController, animated: true)
+                                    }
+                                }
+                                
+                                //self.navigationController?.popViewController(animated: true)
                             }))
                             
                             // show the alert
@@ -487,6 +505,17 @@ class CheckIn: SuperViewController {
                         
                         print("Latitude : \(self.latitude)")
                         print("Longitude : \(self.longitude)")
+                        
+                        //Get City Name
+                        let address_components = component["address_components"] as! [AnyObject]
+                        for dict in address_components {
+                            let types = dict["types"] as! [String]
+                            if types.contains("sublocality") || types.contains("sublocality_level_1") {
+                                self.destination_City = dict["long_name"] as! String
+                                print("Destination City : \(self.destination_City)")
+                                break
+                            }
+                        }
                         
                         
                         //Get Distance
@@ -564,6 +593,17 @@ class CheckIn: SuperViewController {
                         print("Address : \(address!)")
                         
                         self.destinationAddress = address!
+                        
+                        //Get City Name
+                        let address_components = component["address_components"] as! [AnyObject]
+                        for dict in address_components {
+                            let types = dict["types"] as! [String]
+                            if types.contains("sublocality") || types.contains("sublocality_level_1") {
+                                self.destination_City = dict["long_name"] as! String
+                                print("Destination City : \(self.destination_City)")
+                                break
+                            }
+                        }
                         
                     }
                     
@@ -680,6 +720,7 @@ extension CheckIn: UITableViewDelegate, UITableViewDataSource {
             latitude = model.latitude
             longitude = model.longitude
             destinationAddress = model.address
+            destination_City = model.name
             
             self.checkInUser()
         }
